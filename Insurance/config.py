@@ -11,6 +11,6 @@ class EnvironmentVariable:
     mongodb_url=os.getenv("MONGO_DB_URL")
 
 env_var=EnvironmentVariable()
-mongo_client=pymongo.MongoClient(env_var,mongodb_url)
+mongo_client=pymongo.MongoClient(env_var.mongodb_url)
 TARGET_COLUMN= "charges"
-print('env_var,mongodb_url')
+print(env_var.mongodb_url)
