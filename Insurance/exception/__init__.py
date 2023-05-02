@@ -22,6 +22,9 @@ class InsuranceException(Exception):
         return error_message
     
     def __str__(self):
+        return self.error_message
+    
+    def __repr__(self):
         return InsuranceException.__name__.__str__()
 
 # import os
