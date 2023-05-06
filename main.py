@@ -4,9 +4,11 @@ import os,sys
 from Insurance.utils import get_collection_as_dataframe
 from Insurance.entity.config_entity import DataIngestionConfig
 from Insurance.entity.config_entity import DataValidationConfig
+from Insurance.entity.config_entity import DataTransformationConfig
 from Insurance.entity import config_entity
 from Insurance.components.data_ingestion import DataIngestion
 from Insurance.components.data_validation import DataValidation
+from Insurance.components.data_transformation import DataTransformation
 
 # def test_logger_and_exception():
 #     try:
@@ -33,6 +35,11 @@ if __name__== "__main__":
         data_validation_config=config_entity.DataValidationConfig(training_pipeline_config=training_pipeline_config)
         data_validation=DataValidation(data_validation_config=data_validation_config,data_ingestion_artifact=data_ingestion_artifact)
         data_validation_artifact=data_validation.inititate_data_validation()
+
+        # Data Transformation
+        data_transformation_config=config_entity.DataTransformationConfig(training_pipeline_config=training_pipeline_config)
+        data_transformation=DataTransformation(data_transformation_config=data_transformation_config,data_ingestion_artifact=data_ingestion_artifact)
+        data_transformation_artifact=data_transformation.initiate_data_transformation()
 
     except Exception as e:
         print(e)
