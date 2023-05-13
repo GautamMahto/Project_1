@@ -60,7 +60,7 @@ class ModelResolver:
         
     def get_latest_save_dir_path(self)->str:
         try:
-            latest_dir=self.get_latest_dir_name()
+            latest_dir=self.get_latest_dir_path()
             if latest_dir is None:
                 return os.path.join(self.model_registry,f"{0}")
             

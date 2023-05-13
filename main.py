@@ -7,12 +7,15 @@ from Insurance.entity.config_entity import DataValidationConfig
 from Insurance.entity.config_entity import DataTransformationConfig
 from Insurance.entity.config_entity import ModelTrainingConfig
 from Insurance.entity.config_entity import ModelEvaluationConfig
+from Insurance.entity.config_entity import ModelPusherConfig
 from Insurance.entity import config_entity
 from Insurance.components.data_ingestion import DataIngestion
 from Insurance.components.data_validation import DataValidation
 from Insurance.components.data_transformation import DataTransformation
 from Insurance.components.model_trainer import ModelTrainer
 from Insurance.components.model_evaluation import ModelEvaluation,ModelResolver
+from Insurance.components.model_pusher import ModelPusher
+
 
 # def test_logger_and_exception():
 #     try:
@@ -57,6 +60,14 @@ if __name__== "__main__":
                                         data_transformation_artifact=data_transformation_artifact,
                                         model_trainer_artifact=model_trainer_artifact)
         model_evaluation_artifact=model_evaluation.initiate_model_evaluation()
+
+
+        # Model Pusher
+        model_pusher_config=config_entity.ModelPusherConfig(training_pipeline_config=training_pipeline_config)
+        model_pusher=ModelPusher(model_pusher_config=model_pusher_config,
+                                 data_transforamtion_artifact=data_transformation_artifact,
+                                 model_trainer_artifact=model_trainer_artifact)
+        Model_pusher_artifact= model_pusher.initiate_model_pusher()
 
     except Exception as e:
         print(e)

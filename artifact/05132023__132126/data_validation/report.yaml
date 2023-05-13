@@ -1,0 +1,23 @@
+Missing_values_within_base_datasets: []
+data_drift_within_the_train_datasets:
+  age:
+    pvalue: 0.6053221768824981
+    same_distribution: true
+  bmi:
+    pvalue: 0.9978170217327655
+    same_distribution: true
+  charges:
+    pvalue: 0.6536740165495571
+    same_distribution: true
+  children:
+    pvalue: 1.0
+    same_distribution: true
+  region:
+    pvalue: 0.999660202574643
+    same_distribution: true
+  sex:
+    pvalue: 0.9999999202143766
+    same_distribution: true
+  smoker:
+    pvalue: 1.0
+    same_distribution: true
