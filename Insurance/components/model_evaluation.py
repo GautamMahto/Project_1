@@ -62,7 +62,7 @@ class ModelEvaluation:
 
             input_features_name=list(transformer.feature_names_in_)
             for i in input_features_name:
-                if test_df[i]=='object':
+                if test_df[i]=='O':
                     test_df[i]=target_encoder.fit_transform(test_df[i])
             
             input_arr=transformer.transform(test_df[i])

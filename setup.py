@@ -6,9 +6,10 @@ requirement_file_name='requirements.txt'
 REMOVE_PACKAGE='-e .'
 
 def get_requirements()->list[str]:
+    requirement_list=[]
     with open(requirement_file_name) as requirement_file: 
-        requirement_list=requirement_file.readline()
-    requirement_list=[requirement_name.replace('\n','') for requirement_name in requirement_list]
+        requirement_list=requirement_file.readlines()
+        requirement_list=[requirement_name.replace('\n','') for requirement_name in requirement_list]
 
     if REMOVE_PACKAGE in requirement_list:
         requirement_list.remove(REMOVE_PACKAGE)

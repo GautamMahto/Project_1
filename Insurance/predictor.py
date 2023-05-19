@@ -33,7 +33,7 @@ class ModelResolver:
     
     def get_latest_model_path(self):
         try:
-            latest_dir=self.get_latest_dir_name()
+            latest_dir=self.get_latest_dir_path()
             if latest_dir is None:
                 raise Exception(f"Model is not available")
             return os.path.join(latest_dir,self.model_dir_name,MODEL_FILE_NAME)
@@ -42,7 +42,7 @@ class ModelResolver:
 
     def get_latest_transformer_path(self):
         try:
-            latest_dir=self.get_latest_dir_name()
+            latest_dir=self.get_latest_dir_path()
             if latest_dir is None:
                 raise Exception(f"Transform data is not available")
             return os.path.join(latest_dir,self.transformer_dir_name,TRANSFORMED_OBJECT_FILE_NAME)
@@ -51,7 +51,7 @@ class ModelResolver:
 
     def get_latest_target_encoder_path(self):
         try:
-            latest_dir=self.get_latest_dir_name()
+            latest_dir=self.get_latest_dir_path()
             if latest_dir is None:
                 raise Exception(f"Target Encoder  is not available")
             return os.path.join(latest_dir,self.target_encoder_dir_name,TARGET_ENCODER_OBJECT_FILE_NAME)
